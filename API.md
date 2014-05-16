@@ -24,10 +24,23 @@ uint     nb_resultats_par_page
 uint     page
 string   tri    (date-desc|date-asc)
 string   output (json)
+array    typesbien
 array    tags ()
+array    geo_metro_ids
+array    lignes
 array    prix 
     [max] = uint 
     [min] = uint
+array    surface
+    [max] = uint 
+    [min] = uint
+array    nb_pieces
+    [max] = uint 
+    [min] = uint
+    
+if logged
+    string   email
+    string   crypt
 ```
 ```JSON
 {
