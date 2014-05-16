@@ -2,6 +2,9 @@
 **BaseUrl**
 http://www.pap.fr/iphone/v1/
 
+**Response Type**
+JSON
+
 ## Localisation Autocompletion
 ```C#
 POST localisation.php
@@ -10,13 +13,21 @@ POST localisation.php
 ## GPS Localisation
 ```C#
 GET gps.php
-POST json
 ```
 
 ## Search
 ```C#
 POST recherche.php
-TYPE json
+string   produit (vente|location)
+array    geoobjets
+uint     nb_resultats_par_page
+uint     page
+string   tri    (date-desc|date-asc)
+string   output (json)
+array    tags ()
+array    prix 
+    [max] = uint 
+    [min] = uint
 ```
 ```JSON
 {
@@ -64,7 +75,6 @@ TYPE json
 ## Annonce Detail
 ```C#
 POST detail.php
-TYPE json
 ```
 ```JSON
 {
@@ -120,5 +130,62 @@ TYPE json
     }
   },
   "classe_energie": "E"
+}
+```
+
+
+
+# User Api
+## Register
+```C#
+POST user-account-create.php
+```
+
+
+## Login
+```C#
+POST user-account-login.php
+```
+```JSON
+{
+  "status": "0",
+  "crypt": "$1$4B8mr$5mplOlb."
+}
+```
+
+## Save search
+```C#
+POST set-recherche.php
+```
+```JSON
+{
+  "status": "0",
+  "id": "9264669"
+}
+```
+
+## Get Saved Search
+```C#
+POST get-recherche.php
+```
+```JSON
+
+```
+
+## Get Cart
+```C#
+POST get-panier.php
+```
+```JSON
+
+```
+
+## Get Rendez vous
+```C#
+POST get-rdv.php
+```
+```JSON
+{
+  "nb_rdvs":"0"
 }
 ```
